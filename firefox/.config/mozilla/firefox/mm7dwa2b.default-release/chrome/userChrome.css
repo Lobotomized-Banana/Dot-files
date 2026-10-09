@@ -43,6 +43,7 @@
 #tabbrowser-tabpanels {
   background: transparent !important;
   background-color: transparent !important;
+  -moz-appearance: none !important;
   box-shadow: none !important;
 }
 
