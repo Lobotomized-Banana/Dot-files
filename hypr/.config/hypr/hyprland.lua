@@ -212,13 +212,13 @@ hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("rofi -show run"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("rofi-powermenu"))
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("/home/Andrew/.local/bin/rofi-powermenu"))
 hl.bind("SUPER + SHIFT + L", hl.dsp.exit())
 
 -- Screenshots (grim + slurp)
 -- NOTE: no-mod bind is just "Print", not ", Print" (that comma syntax is hyprland.conf only)
-hl.bind("Print", hl.dsp.exec_cmd("screenshot-full"))
-hl.bind("SUPER + Print", hl.dsp.exec_cmd("screenshot-area"))
+hl.bind("Print", hl.dsp.exec_cmd("/home/Andrew/.local/bin/screenshot-full"))
+hl.bind("SUPER + Print", hl.dsp.exec_cmd("/home/Andrew/.local/bin/screenshot-area"))
 -- NOTE: SUPER+SHIFT+S is already used for scratchpad move below, so no duplicate screenshot bind here
 
 -- Move focus with mainMod + arrow keys
