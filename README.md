@@ -12,6 +12,7 @@ dotfiles/
   alacritty/.config/alacritty/alacritty.toml   # PREVIEW ONLY, not stowed yet
   swaync/.config/swaync/{config.json,style.css}
   firefox/.config/mozilla/firefox/<profile>/{user.js,chrome/userChrome.css,chrome/userContent.css}
+  plasma/.local/share/color-schemes/PurpleSquircle.colors
   scripts/.local/bin/{rofi-powermenu,screenshot-full,screenshot-area,wallpaper-set}
   wallpapers/purple-glow-3840x1080.png
   sddm/purple-squircle/{Main.qml,metadata.desktop,theme.conf,background.png}

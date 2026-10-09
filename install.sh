@@ -21,7 +21,7 @@ backup() {
 }
 
 # 3. stow (skip alacritty until preview approved)
-for pkg in hypr waybar rofi swaync scripts firefox; do
+for pkg in hypr waybar rofi swaync scripts firefox plasma; do
   echo "stow $pkg"
   stow -v -R -t "$HOME" "$pkg"
 done
@@ -29,6 +29,13 @@ done
 # wallpaper -> ~/Pictures
 mkdir -p ~/Pictures
 cp -v wallpapers/purple-glow-3840x1080.png ~/Pictures/ || true
+
+# Plasma: apply scheme + accent + icons (file writes work outside Plasma too)
+plasma-apply-colorscheme PurpleSquircle >/dev/null 2>&1 || true
+kwriteconfig6 --file kdeglobals --group General --key AccentColor "91,12,166" || true
+kwriteconfig6 --file kdeglobals --group Icons --key Theme Papirus-Dark || true
+# NOTE: Plasma wallpaper can't be set headlessly; inside a Plasma session run:
+#   plasma-apply-wallpaperimage ~/Pictures/purple-glow-3840x1080.png
 
 # SDDM greeter theme (system paths, needs root - not stowable)
 if [ -d "$DOTFILES/sddm/purple-squircle" ]; then
