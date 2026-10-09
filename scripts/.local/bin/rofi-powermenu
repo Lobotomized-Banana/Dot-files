@@ -4,7 +4,11 @@
 set -euo pipefail
 choice=$(printf "󰍃 Sign out to SDDM\n󰌾 Suspend\n Reboot\n⏻ Shutdown" | rofi -dmenu -p "Power" -theme ~/.config/rofi/purple.rasi)
 case "$choice" in
-  *Sign*) hyprctl dispatch exit ;;
+  *Sign*)
+    # NB: plain `hyprctl dispatch exit` no longer works on 0.56 (Lua dispatch
+    # expects an hl.dsp.* object). Fall back to session terminate if it fails.
+    hyprctl dispatch 'hl.dsp.exit()' >>/tmp/powermenu.log 2>&1 || loginctl terminate-session "$XDG_SESSION_ID"
+    ;;
   *Reboot*) systemctl reboot ;;
   *Shutdown*) systemctl poweroff ;;
   *Suspend*) systemctl suspend ;;
