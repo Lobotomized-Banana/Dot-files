@@ -14,6 +14,20 @@ dotfiles/
   firefox/.config/mozilla/firefox/<profile>/{user.js,chrome/userChrome.css,chrome/userContent.css}
   plasma/.local/share/color-schemes/PurpleSquircle.colors
   opencode/.config/opencode/{cli.json,themes/purple-squircle.json}
+  opencode/.config/opencode/webui/purple-squircle-webui.css (web UI, see below)
+```
+
+## OpenCode web UI theme
+
+The TUI theme (`themes/`) does not cover the browser UI. The web app
+(`opencode web` / desktop app) loads custom CSS from localStorage
+(`opencode-theme-id` + `opencode-theme-css-dark`, see `oc-theme-preload.js`):
+
+1. Run on a FIXED port (localStorage is per-origin, random ports lose it):
+   `opencode web --port 4096`
+2. In the web UI, open DevTools console (F12) and paste:
+   `fetch('https://raw.githubusercontent.com/Lobotomized-Banana/Dot-files/main/opencode/.config/opencode/webui/purple-squircle-webui.css').then(r=>r.text()).then(css=>{localStorage.setItem('opencode-theme-id','purple-squircle');localStorage.setItem('opencode-theme-css-dark',css);localStorage.setItem('opencode-theme-css-light',css);location.reload();});`
+3. The desktop app needs the same snippet once in its own DevTools.
   scripts/.local/bin/{rofi-powermenu,screenshot-full,screenshot-area,wallpaper-set}
   wallpapers/purple-glow-3840x1080.png
   sddm/purple-squircle/{Main.qml,metadata.desktop,theme.conf,background.png}
