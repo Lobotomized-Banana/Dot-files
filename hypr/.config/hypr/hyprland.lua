@@ -298,6 +298,12 @@ hl.window_rule({
 })
 
 -- Purple rice: keep rofi / swaync / waybar on top, no blur duplication
+-- Alacritty: tame blur (noblur + 0.85 opacity) so wallpaper shows through, text stays readable
+hl.window_rule({
+    name = "alacritty-tame-blur",
+    match = { class = "Alacritty" },
+    no_blur = true,
+})
 hl.window_rule({
     name = "rofi-float",
     match = { class = "Rofi" },
