@@ -1,0 +1,82 @@
+/* Purple Squircle Rofi - #5b0ca6 / #490585 */
+* {
+  bg:        #0e0716f2;
+  bg-alt:    #1e0e2eff;
+  bg-select: #5b0ca6ff;
+  bg-accent: #490585ff;
+  fg:        #ece5f7ff;
+  fg-dim:    #a898c2ff;
+  border:    #5b0ca6ff;
+
+  font: "JetBrainsMono Nerd Font 11";
+  border-radius: 16;
+  padding: 0;
+  margin: 0;
+  spacing: 0;
+}
+
+window {
+  background-color: @bg;
+  border: 2 @border;
+  border-radius: 16;
+  width: 640;
+  padding: 16;
+}
+
+mainbox {
+  children: [ inputbar, listview ];
+  spacing: 12;
+}
+
+inputbar {
+  children: [ prompt, entry ];
+  background-color: @bg-alt;
+  border-radius: 12;
+  padding: 8 12;
+  spacing: 8;
+}
+
+prompt {
+  text-color: @fg;
+}
+
+entry {
+  text-color: @fg;
+  placeholder: "Search apps…";
+  placeholder-color: @fg-dim;
+}
+
+listview {
+  lines: 9;
+  columns: 1;
+  spacing: 4;
+  scrollbar: false;
+  fixed-height: true;
+}
+
+element {
+  background-color: transparent;
+  text-color: @fg;
+  border-radius: 10;
+  padding: 8 12;
+  orientation: horizontal;
+  spacing: 10;
+}
+
+element-icon {
+  size: 24;
+}
+
+element-text {
+  vertical-align: 0.5;
+}
+
+element selected {
+  background-color: @bg-select;
+  border: 1 @bg-accent;
+  text-color: #ffffffff;
+}
+
+element urgent, element alternate.urgent {
+  text-color: #ff5577ff;
+}

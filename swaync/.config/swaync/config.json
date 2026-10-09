@@ -1,0 +1,16 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "cssPriority": "user",
+  "control-center-width": 380,
+  "notification-window-width": 380,
+  "timeout": 6,
+  "timeout-low": 3,
+  "timeout-critical": 0,
+  "keyboard-shortcuts": true,
+  "widgets": ["title", "dnd", "notifications", "mpris"],
+  "widget-config": {
+    "title": { "text": "Notifications", "button-text": "Clear" }
+  }
+}

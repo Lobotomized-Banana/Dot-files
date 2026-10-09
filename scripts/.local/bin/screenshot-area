@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+mkdir -p ~/Pictures/Screenshots
+f=~/Pictures/Screenshots/area-$(date +%Y%m%d-%H%M%S).png
+grim -g "$(slurp -d)" "$f"
+wl-copy < "$f" 2>/dev/null || true
+notify-send "Screenshot" "$f (copied)" 2>/dev/null || true
+echo "$f"

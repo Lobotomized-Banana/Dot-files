@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# rofi power menu - purple rice
+set -euo pipefail
+choice=$(printf " Lock\n󰍃 Logout\n Reboot\n⏻ Shutdown\n󰌾 Suspend" | rofi -dmenu -p "Power" -theme ~/.config/rofi/purple.rasi)
+case "$choice" in
+  *Lock*) hyprlock ;;
+  *Logout*) hyprctl dispatch exit ;;
+  *Reboot*) systemctl reboot ;;
+  *Shutdown*) systemctl poweroff ;;
+  *Suspend*) systemctl suspend ;;
+esac

@@ -1,0 +1,103 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+  "spacing": 8,
+  "margin-top": 12,
+  "margin-left": 16,
+  "margin-right": 16,
+  "exclusive": true,
+  "fixed-center": true,
+  "ipc": true,
+
+  "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["cpu", "memory", "pulseaudio", "network", "tray", "custom/power"],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0",
+      "urgent": "!",
+      "special": "S"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": []
+    },
+    "on-click": "activate"
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 45,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "{:%a %b %d  %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "gnome-calendar || pavucontrol"
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 2,
+    "on-click": "alacritty -e btop"
+  },
+
+  "memory": {
+    "format": " {}%",
+    "interval": 5
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+
+  "network": {
+    "format-wifi": " {signalStrength}%",
+    "format-ethernet": " {ipaddr}",
+    "format-disconnected": "⚠ offline",
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "on-click": "nm-connection-editor"
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+
+  "custom/launcher": {
+    "format": "",
+    "tooltip": "App launcher (SUPER+R)",
+    "on-click": "rofi -show drun"
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": "Power menu (SUPER+SHIFT+E)",
+    "on-click": "rofi-powermenu"
+  }
+}

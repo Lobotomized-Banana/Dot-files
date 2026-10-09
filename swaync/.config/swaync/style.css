@@ -1,0 +1,38 @@
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+}
+
+.control-center, .notification-window {
+  background: rgba(14, 7, 22, 0.92);
+  border: 2px solid #5b0ca6;
+  border-radius: 16px;
+  color: #ece5f7;
+}
+
+.notification {
+  background: #1e0e2e;
+  border: 1px solid #2a1540;
+  border-radius: 12px;
+  margin: 6px;
+}
+
+.notification.critical {
+  border: 2px solid #ff5577;
+}
+
+.widget-title {
+  color: #ece5f7;
+  background: transparent;
+}
+
+.widget-title > button {
+  background: linear-gradient(135deg, #5b0ca6, #490585);
+  color: #fff;
+  border-radius: 10px;
+  padding: 4px 12px;
+}
+
+.widget-dnd {
+  color: #a898c2;
+}
