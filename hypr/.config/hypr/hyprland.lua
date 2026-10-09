@@ -34,15 +34,15 @@ local browser     = "firefox"
 -------------------
 
 hl.on("hyprland.start", function()
+    -- proof marker: check /tmp/hypr-autostart.log after re-login to confirm this fired
+    hl.exec_cmd("echo \"start $(date '+%F %T')\" >> /tmp/hypr-autostart.log")
+    -- give systemd user services (swaync, portals) the display env (official FAQ fix)
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     -- kill legacy panel (replaced by waybar)
     hl.exec_cmd("pkill -x nwg-panel || true")
-    hl.exec_cmd("pkill -x waybar; pkill -x swaync; pkill -x hypridle; sleep 0.2")
-    hl.exec_cmd("awww-daemon || true")
-    hl.exec_cmd("sleep 0.3; awww img ~/Pictures/purple-glow-3840x1080.png || awww restore || true")
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("swaync")
-    hl.exec_cmd("hypridle")
-    hl.exec_cmd("hyprpm reload -n")
+    -- serialized: kill stale bar/idle, revive swaync service, then start everything.
+    -- (swaync is systemd-managed: never pkill/direct-exec it, that fights the service.)
+    hl.exec_cmd("pkill -x waybar; pkill -x hypridle; sleep 0.5; systemctl --user reset-failed swaync.service || true; systemctl --user start swaync.service || true; awww-daemon || true; sleep 0.3; awww img ~/Pictures/purple-glow-3840x1080.png || awww restore || true; waybar; hypridle; hyprpm reload -n || true")
 end)
 
 -------------------------------
