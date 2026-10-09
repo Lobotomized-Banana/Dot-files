@@ -1,53 +1,56 @@
 /* Purple Squircle Firefox theme - main #5b0ca6 / accent #490585
-   Translucent chrome + compositor blur (frosted). Web content stays opaque.
-   Managed by dotfiles (stow firefox). Restart Firefox to apply. */
+   Frosted chrome: containers fully transparent, ONE translucent layer per
+   surface (stacked rgba layers compound into near-opacity, killing the frost).
+   Web content stays opaque. Restart Firefox to apply. */
 
 :root {
-  --toolbar-bgcolor: rgba(22, 10, 33, 0.72) !important;
+  --toolbar-bgcolor: rgba(22, 10, 33, 0.55) !important;
   --toolbar-color: #ece5f7 !important;
-  --lwt-accent-color: rgba(14, 7, 22, 0.78) !important;
+  --lwt-accent-color: transparent !important;
   --lwt-text-color: #ffffff !important;
 
-  --toolbar-field-background-color: rgba(30, 14, 46, 0.65) !important;
+  --toolbar-field-background-color: rgba(30, 14, 46, 0.5) !important;
   --toolbar-field-color: #ffffff !important;
-  --toolbar-field-focus-background-color: rgba(36, 17, 48, 0.8) !important;
+  --toolbar-field-focus-background-color: rgba(36, 17, 48, 0.65) !important;
   --toolbar-field-border-color: #5b0ca6 !important;
   --toolbar-field-focus-border-color: #8b2fe0 !important;
 
   --tabs-border-color: transparent !important;
   --chrome-content-separator-color: #5b0ca6 !important;
 
-  --arrowpanel-background: rgba(22, 10, 33, 0.88) !important;
+  --arrowpanel-background: rgba(22, 10, 33, 0.85) !important;
   --arrowpanel-color: #ece5f7 !important;
   --arrowpanel-border-color: #5b0ca6 !important;
-  --panel-background: rgba(22, 10, 33, 0.88) !important;
+  --panel-background: rgba(22, 10, 33, 0.85) !important;
   --panel-color: #ece5f7 !important;
 
-  --sidebar-background-color: rgba(14, 7, 22, 0.85) !important;
+  --sidebar-background-color: rgba(14, 7, 22, 0.8) !important;
   --sidebar-text-color: #ece5f7 !important;
 
   --urlbarView-highlight-background: #5b0ca6 !important;
   --urlbarView-highlight-color: #ffffff !important;
-  --urlbarView-hover-background: rgba(42, 21, 64, 0.7) !important;
+  --urlbarView-hover-background: rgba(42, 21, 64, 0.6) !important;
 }
 
-/* ---- transparent window base so Hyprland blur shows through ---- */
+/* ---- transparent window base so Hyprland blur shows through.
+        NO fills here: any fill would stack with the surfaces below ---- */
 #main-window,
 #navigator-toolbox,
 #TabsToolbar,
 #PersonalToolbar,
 #nav-bar,
+#titlebar,
 #tabbrowser-tabpanels {
   background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
-/* frosted tint over the blur for the header area */
 #navigator-toolbox {
-  background-color: rgba(14, 7, 22, 0.55) !important;
   border-bottom: 1px solid #5b0ca6 !important;
 }
 
-/* ---- tabs: rounded, inactive transparent, active translucent gradient ---- */
+/* ---- tabs: rounded, inactive fully transparent, active translucent gradient ---- */
 .tab-background {
   background: transparent !important;
   border-radius: 12px !important;
@@ -55,7 +58,7 @@
 }
 
 .tabbrowser-tab[selected] .tab-background {
-  background: linear-gradient(135deg, rgba(91, 12, 166, 0.88), rgba(73, 5, 133, 0.88)) !important;
+  background: linear-gradient(135deg, rgba(91, 12, 166, 0.8), rgba(73, 5, 133, 0.8)) !important;
 }
 
 .tabbrowser-tab[selected] .tab-label {
@@ -63,27 +66,35 @@
 }
 
 .tabbrowser-tab:not([selected]) .tab-label {
-  color: #c9a6ff !important;
+  color: #ffffff !important;
 }
 
 .tabbrowser-tab:not([selected]):hover .tab-background {
-  background-color: rgba(42, 21, 64, 0.6) !important;
+  background-color: rgba(42, 21, 64, 0.5) !important;
 }
 
-/* ---- urlbar: translucent pill with purple focus ring ---- */
+/* ---- urlbar: single translucent pill with purple focus ring ---- */
+#urlbar {
+  background: transparent !important;
+}
+
 #urlbar-background {
   border-radius: 12px !important;
-  background-color: rgba(30, 14, 46, 0.65) !important;
-  border: 1px solid rgba(42, 21, 64, 0.8) !important;
+  background-color: rgba(30, 14, 46, 0.5) !important;
+  border: 1px solid rgba(91, 12, 166, 0.6) !important;
 }
 
 #urlbar:focus-within #urlbar-background,
 #urlbar[breakout-extend] #urlbar-background {
-  border-color: #5b0ca6 !important;
+  border-color: #8b2fe0 !important;
   box-shadow: 0 0 0 1px #5b0ca6 !important;
 }
 
 /* ---- urlbar popup results ---- */
+#urlbarView {
+  background: transparent !important;
+}
+
 .urlbarView-row[selected] {
   background-color: #5b0ca6 !important;
   border-radius: 8px !important;
@@ -94,8 +105,8 @@
   color: #ffffff !important;
 }
 
-/* ---- menus / panels ---- */
+/* ---- menus / panels (kept near-opaque for readability) ---- */
 menupopup, panel {
-  --panel-background: rgba(22, 10, 33, 0.88) !important;
+  --panel-background: rgba(22, 10, 33, 0.85) !important;
   --panel-color: #ece5f7 !important;
 }
