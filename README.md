@@ -14,8 +14,16 @@ dotfiles/
   firefox/.config/mozilla/firefox/<profile>/{user.js,chrome/userChrome.css,chrome/userContent.css}
   scripts/.local/bin/{rofi-powermenu,screenshot-full,screenshot-area,wallpaper-set}
   wallpapers/purple-glow-3840x1080.png
-  install.sh
+  sddm/purple-squircle/{Main.qml,metadata.desktop,theme.conf,background.png}
+  install.sh  # also installs SDDM theme to /usr/share/sddm (sudo, not stowable)
 ```
+
+## SDDM
+
+`install.sh` copies the theme to `/usr/share/sddm/themes/purple-squircle`
+and sets `Current=purple-squircle` in `/etc/sddm.conf.d/purple.conf`
+(sorts after KDE's `kde_settings.conf`, so it wins; breeze stays installed).
+Revert: `sudo rm /etc/sddm.conf.d/purple.conf` (falls back to breeze).
 
 ## Install
 

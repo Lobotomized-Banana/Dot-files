@@ -30,6 +30,15 @@ done
 mkdir -p ~/Pictures
 cp -v wallpapers/purple-glow-3840x1080.png ~/Pictures/ || true
 
+# SDDM greeter theme (system paths, needs root - not stowable)
+if [ -d "$DOTFILES/sddm/purple-squircle" ]; then
+  echo "installing SDDM theme (sudo)"
+  sudo rm -rf /usr/share/sddm/themes/purple-squircle
+  sudo cp -r "$DOTFILES/sddm/purple-squircle" /usr/share/sddm/themes/purple-squircle
+  sudo chmod -R a+rX /usr/share/sddm/themes/purple-squircle
+  printf '[Theme]\nCurrent=purple-squircle\n' | sudo tee /etc/sddm.conf.d/purple.conf >/dev/null
+fi
+
 chmod +x ~/.local/bin/rofi-powermenu ~/.local/bin/screenshot-* ~/.local/bin/wallpaper-set 2>/dev/null || true
 
 # 4. reload
