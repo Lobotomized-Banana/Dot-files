@@ -9,4 +9,4 @@ configuration {
   icon-theme: "Papirus-Dark";
   location: 0;
 }
-@theme "purple"
+@theme "purple.rasi"

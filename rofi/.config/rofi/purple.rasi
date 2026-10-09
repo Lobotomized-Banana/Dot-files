@@ -1,82 +1,84 @@
-/* Purple Squircle Rofi - #5b0ca6 / #490585 */
+/* Purple Squircle Rofi - #5b0ca6 / #490585 - rofi 2.0 syntax */
 * {
-  bg:        #0e0716f2;
-  bg-alt:    #1e0e2eff;
-  bg-select: #5b0ca6ff;
-  bg-accent: #490585ff;
-  fg:        #ece5f7ff;
-  fg-dim:    #a898c2ff;
-  border:    #5b0ca6ff;
-
-  font: "JetBrainsMono Nerd Font 11";
-  border-radius: 16;
-  padding: 0;
-  margin: 0;
-  spacing: 0;
+  mybg:        rgba ( 14, 7, 22, 95% );
+  mybg-alt:    rgba ( 30, 14, 46, 100% );
+  mybg-select: rgba ( 91, 12, 166, 100% );
+  mybg-accent: rgba ( 73, 5, 133, 100% );
+  myfg:        rgba ( 236, 229, 247, 100% );
+  myfg-dim:    rgba ( 168, 152, 194, 100% );
+  myborder:    rgba ( 91, 12, 166, 100% );
+  myurgent:    rgba ( 255, 85, 119, 100% );
+  mywhite:     rgba ( 255, 255, 255, 100% );
 }
 
 window {
-  background-color: @bg;
-  border: 2 @border;
-  border-radius: 16;
-  width: 640;
-  padding: 16;
+  background-color: @mybg;
+  border: 2px;
+  border-color: @myborder;
+  border-radius: 16px;
+  width: 640px;
+  padding: 16px;
 }
 
 mainbox {
   children: [ inputbar, listview ];
-  spacing: 12;
+  spacing: 12px;
 }
 
 inputbar {
   children: [ prompt, entry ];
-  background-color: @bg-alt;
-  border-radius: 12;
-  padding: 8 12;
-  spacing: 8;
+  background-color: @mybg-alt;
+  border-radius: 12px;
+  padding: 8px 12px;
+  spacing: 8px;
 }
 
 prompt {
-  text-color: @fg;
+  text-color: @myfg;
 }
 
 entry {
-  text-color: @fg;
+  text-color: @myfg;
   placeholder: "Search apps…";
-  placeholder-color: @fg-dim;
 }
 
 listview {
   lines: 9;
   columns: 1;
-  spacing: 4;
+  spacing: 4px;
   scrollbar: false;
   fixed-height: true;
 }
 
 element {
   background-color: transparent;
-  text-color: @fg;
-  border-radius: 10;
-  padding: 8 12;
+  text-color: @myfg;
+  border-radius: 10px;
+  padding: 8px 12px;
   orientation: horizontal;
-  spacing: 10;
+  spacing: 10px;
 }
 
 element-icon {
-  size: 24;
+  size: 24px;
 }
 
 element-text {
   vertical-align: 0.5;
 }
 
-element selected {
-  background-color: @bg-select;
-  border: 1 @bg-accent;
-  text-color: #ffffffff;
+element normal.normal {
+  background-color: transparent;
+  text-color: @myfg;
 }
 
-element urgent, element alternate.urgent {
-  text-color: #ff5577ff;
+element selected.normal {
+  background-color: @mybg-select;
+  border: 1px;
+  border-color: @mybg-accent;
+  text-color: @mywhite;
+}
+
+element normal.urgent, element alternate.urgent {
+  text-color: @myurgent;
 }
