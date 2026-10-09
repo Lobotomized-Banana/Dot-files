@@ -13,6 +13,7 @@ dotfiles/
   swaync/.config/swaync/{config.json,style.css}
   firefox/.config/mozilla/firefox/<profile>/{user.js,chrome/userChrome.css,chrome/userContent.css}
   plasma/.local/share/color-schemes/PurpleSquircle.colors
+  opencode/.config/opencode/{cli.json,themes/purple-squircle.json}
   scripts/.local/bin/{rofi-powermenu,screenshot-full,screenshot-area,wallpaper-set}
   wallpapers/purple-glow-3840x1080.png
   sddm/purple-squircle/{Main.qml,metadata.desktop,theme.conf,background.png}

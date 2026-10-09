@@ -21,7 +21,7 @@ backup() {
 }
 
 # 3. stow (skip alacritty until preview approved)
-for pkg in hypr waybar rofi swaync scripts firefox plasma; do
+for pkg in hypr waybar rofi swaync scripts firefox plasma opencode; do
   echo "stow $pkg"
   stow -v -R -t "$HOME" "$pkg"
 done
