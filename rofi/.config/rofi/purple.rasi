@@ -1,40 +1,37 @@
-/* Purple Squircle Rofi - #5b0ca6 / #490585 - rofi 2.0 syntax */
+/* Purple Squircle Rofi - #5b0ca6 / #490585 - rofi 2.0 syntax - all text pure white */
 * {
   mybg:        rgba ( 14, 7, 22, 95% );
   mybg-alt:    rgba ( 30, 14, 46, 100% );
   mybg-select: rgba ( 91, 12, 166, 100% );
   mybg-accent: rgba ( 73, 5, 133, 100% );
-  myfg:        rgba ( 236, 229, 247, 100% );
-  myfg-dim:    rgba ( 168, 152, 194, 100% );
-  myborder:    rgba ( 91, 12, 166, 100% );
-  myurgent:    rgba ( 255, 85, 119, 100% );
   mywhite:     rgba ( 255, 255, 255, 100% );
+  myborder:    rgba ( 91, 12, 166, 100% );
 
-  /* Override rofi built-in fallbacks so unstylized widgets never render white */
+  /* Override rofi built-in fallbacks: dark bg everywhere, white text everywhere */
   background:                rgba ( 14, 7, 22, 95% );
   background-color:          transparent;
-  foreground:                rgba ( 236, 229, 247, 100% );
+  foreground:                rgba ( 255, 255, 255, 100% );
   border-color:              rgba ( 91, 12, 166, 100% );
   separatorcolor:            rgba ( 42, 21, 64, 100% );
   scrollbar-handle:          rgba ( 91, 12, 166, 100% );
   normal-background:         rgba ( 14, 7, 22, 95% );
-  normal-foreground:         rgba ( 236, 229, 247, 100% );
+  normal-foreground:         rgba ( 255, 255, 255, 100% );
   alternate-normal-background: rgba ( 30, 14, 46, 100% );
-  alternate-normal-foreground: rgba ( 236, 229, 247, 100% );
+  alternate-normal-foreground: rgba ( 255, 255, 255, 100% );
   selected-normal-background:  rgba ( 91, 12, 166, 100% );
   selected-normal-foreground:  rgba ( 255, 255, 255, 100% );
   urgent-background:         rgba ( 14, 7, 22, 95% );
-  urgent-foreground:         rgba ( 255, 85, 119, 100% );
+  urgent-foreground:         rgba ( 255, 255, 255, 100% );
   selected-urgent-background:  rgba ( 91, 12, 166, 100% );
   selected-urgent-foreground:  rgba ( 255, 255, 255, 100% );
   alternate-urgent-background: rgba ( 30, 14, 46, 100% );
-  alternate-urgent-foreground: rgba ( 255, 85, 119, 100% );
+  alternate-urgent-foreground: rgba ( 255, 255, 255, 100% );
   active-background:         rgba ( 14, 7, 22, 95% );
-  active-foreground:         rgba ( 201, 166, 255, 100% );
+  active-foreground:         rgba ( 255, 255, 255, 100% );
   selected-active-background:  rgba ( 91, 12, 166, 100% );
   selected-active-foreground:  rgba ( 255, 255, 255, 100% );
   alternate-active-background: rgba ( 30, 14, 46, 100% );
-  alternate-active-foreground: rgba ( 201, 166, 255, 100% );
+  alternate-active-foreground: rgba ( 255, 255, 255, 100% );
 }
 
 window {
@@ -61,11 +58,11 @@ inputbar {
 }
 
 prompt {
-  text-color: @myfg;
+  text-color: @mywhite;
 }
 
 entry {
-  text-color: @myfg;
+  text-color: @mywhite;
   placeholder: "Search apps…";
 }
 
@@ -88,19 +85,19 @@ scrollbar {
 
 message {
   background-color: @mybg-alt;
-  text-color: @myfg;
+  text-color: @mywhite;
   border-radius: 10px;
   padding: 8px 12px;
 }
 
 textbox {
   background-color: transparent;
-  text-color: @myfg;
+  text-color: @mywhite;
 }
 
 button {
   background-color: @mybg-alt;
-  text-color: @myfg-dim;
+  text-color: @mywhite;
   border-radius: 10px;
   padding: 6px 12px;
 }
@@ -112,12 +109,13 @@ button selected.normal {
 
 mode-switcher {
   background-color: transparent;
+  text-color: @mywhite;
   spacing: 6px;
 }
 
 element {
   background-color: transparent;
-  text-color: @myfg;
+  text-color: @mywhite;
   border-radius: 10px;
   padding: 8px 12px;
   orientation: horizontal;
@@ -129,17 +127,19 @@ element-icon {
 }
 
 element-text {
+  background-color: transparent;
+  text-color: @mywhite;
   vertical-align: 0.5;
 }
 
 element normal.normal {
   background-color: transparent;
-  text-color: @myfg;
+  text-color: @mywhite;
 }
 
 element alternate.normal {
   background-color: @mybg-alt;
-  text-color: @myfg;
+  text-color: @mywhite;
 }
 
 element selected.normal {
@@ -149,20 +149,22 @@ element selected.normal {
   text-color: @mywhite;
 }
 
+element normal.urgent, element alternate.urgent {
+  background-color: transparent;
+  text-color: @mywhite;
+}
+
 element selected.urgent {
   background-color: @mybg-select;
+  text-color: @mywhite;
+}
+
+element normal.active, element alternate.active {
+  background-color: transparent;
   text-color: @mywhite;
 }
 
 element selected.active {
   background-color: @mybg-select;
   text-color: @mywhite;
-}
-
-element alternate.urgent, element alternate.active {
-  background-color: @mybg-alt;
-}
-
-element normal.urgent, element alternate.urgent {
-  text-color: @myurgent;
 }
