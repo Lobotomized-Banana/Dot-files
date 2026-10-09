@@ -90,7 +90,7 @@
   },
 
   "custom/launcher": {
-    "format": "",
+    "format": "",
     "tooltip": "App launcher (SUPER+R)",
     "on-click": "rofi -show drun"
   },
