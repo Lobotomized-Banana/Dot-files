@@ -21,7 +21,7 @@ backup() {
 }
 
 # 3. stow (skip alacritty until preview approved)
-for pkg in hypr waybar rofi swaync scripts; do
+for pkg in hypr waybar rofi swaync scripts firefox; do
   echo "stow $pkg"
   stow -v -R -t "$HOME" "$pkg"
 done

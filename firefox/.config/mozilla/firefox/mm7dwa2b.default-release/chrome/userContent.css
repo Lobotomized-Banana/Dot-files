@@ -1,0 +1,12 @@
+/* Purple Squircle Firefox content theme - dark newtab/home to match #0e0716 */
+@-moz-document url(about:newtab), url(about:home) {
+  body {
+    background-color: #0e0716 !important;
+  }
+}
+
+@-moz-document url(about:blank) {
+  html, body {
+    background-color: #0e0716 !important;
+  }
+}

@@ -1,0 +1,83 @@
+/* Purple Squircle Firefox theme - main #5b0ca6 / accent #490585
+   Managed by dotfiles (stow firefox). Restart Firefox to apply. */
+
+:root {
+  --toolbar-bgcolor: #160a21 !important;
+  --toolbar-color: #ece5f7 !important;
+  --lwt-accent-color: #0e0716 !important;
+  --lwt-text-color: #ece5f7 !important;
+
+  --toolbar-field-background-color: #1e0e2e !important;
+  --toolbar-field-color: #ffffff !important;
+  --toolbar-field-focus-background-color: #241130 !important;
+  --toolbar-field-border-color: #5b0ca6 !important;
+  --toolbar-field-focus-border-color: #8b2fe0 !important;
+
+  --tabs-border-color: transparent !important;
+  --chrome-content-separator-color: #5b0ca6 !important;
+
+  --arrowpanel-background: #160a21 !important;
+  --arrowpanel-color: #ece5f7 !important;
+  --arrowpanel-border-color: #5b0ca6 !important;
+  --panel-background: #160a21 !important;
+  --panel-color: #ece5f7 !important;
+
+  --sidebar-background-color: #0e0716 !important;
+  --sidebar-text-color: #ece5f7 !important;
+
+  --urlbarView-highlight-background: #5b0ca6 !important;
+  --urlbarView-highlight-color: #ffffff !important;
+  --urlbarView-hover-background: #2a1540 !important;
+}
+
+/* ---- tabs: rounded, active tab gets the purple gradient ---- */
+.tab-background {
+  border-radius: 12px !important;
+  border: 1px solid transparent !important;
+}
+
+.tabbrowser-tab[selected] .tab-background {
+  background: linear-gradient(135deg, #5b0ca6, #490585) !important;
+}
+
+.tabbrowser-tab[selected] .tab-label {
+  color: #ffffff !important;
+}
+
+.tabbrowser-tab:not([selected]) .tab-label {
+  color: #a898c2 !important;
+}
+
+.tabbrowser-tab:not([selected]):hover .tab-background {
+  background-color: #2a1540 !important;
+}
+
+/* ---- urlbar: rounded pill with purple focus ring ---- */
+#urlbar-background {
+  border-radius: 12px !important;
+  background-color: #1e0e2e !important;
+  border: 1px solid #2a1540 !important;
+}
+
+#urlbar:focus-within #urlbar-background,
+#urlbar[breakout-extend] #urlbar-background {
+  border-color: #5b0ca6 !important;
+  box-shadow: 0 0 0 1px #5b0ca6 !important;
+}
+
+/* ---- urlbar popup results ---- */
+.urlbarView-row[selected] {
+  background-color: #5b0ca6 !important;
+  border-radius: 8px !important;
+}
+
+.urlbarView-row[selected] .urlbarView-title,
+.urlbarView-row[selected] .urlbarView-action {
+  color: #ffffff !important;
+}
+
+/* ---- menus / panels ---- */
+menupopup, panel {
+  --panel-background: #160a21 !important;
+  --panel-color: #ece5f7 !important;
+}

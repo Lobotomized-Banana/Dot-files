@@ -11,6 +11,7 @@ dotfiles/
   rofi/.config/rofi/{config.rasi,purple.rasi}
   alacritty/.config/alacritty/alacritty.toml   # PREVIEW ONLY, not stowed yet
   swaync/.config/swaync/{config.json,style.css}
+  firefox/.config/mozilla/firefox/<profile>/{user.js,chrome/userChrome.css,chrome/userContent.css}
   scripts/.local/bin/{rofi-powermenu,screenshot-full,screenshot-area,wallpaper-set}
   wallpapers/purple-glow-3840x1080.png
   install.sh
