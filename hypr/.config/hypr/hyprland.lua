@@ -297,6 +297,13 @@ hl.window_rule({
     float = true,
 })
 
+-- Firefox: compositor translucency (CSS alpha alone doesn't composite on FF157,
+-- so frost the whole window here; content stays readable at 0.9)
+hl.window_rule({
+    name = "firefox-translucent",
+    match = { class = "firefox" },
+    opacity = 0.9,
+})
 -- Purple rice: keep rofi / swaync / waybar on top, no blur duplication
 -- Alacritty: tame blur (noblur + 0.85 opacity) so wallpaper shows through, text stays readable
 hl.window_rule({
